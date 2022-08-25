@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.47b8b737.chunk.css",
+    "main.js": "/static/js/main.1460cf07.chunk.js",
+    "main.js.map": "/static/js/main.1460cf07.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1a9b355e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1a9b355e.js.map",
+    "static/js/2.4873815a.chunk.js": "/static/js/2.4873815a.chunk.js",
+    "static/js/2.4873815a.chunk.js.map": "/static/js/2.4873815a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.47b8b737.chunk.css.map": "/static/css/main.47b8b737.chunk.css.map",
+    "static/js/2.4873815a.chunk.js.LICENSE.txt": "/static/js/2.4873815a.chunk.js.LICENSE.txt",
+    "static/media/close_white_24dp.244b6687.svg": "/static/media/close_white_24dp.244b6687.svg",
+    "static/media/coffee_black_24dp.9aeb972b.svg": "/static/media/coffee_black_24dp.9aeb972b.svg",
+    "static/media/local_bar_black_24dp.ef5c7910.svg": "/static/media/local_bar_black_24dp.ef5c7910.svg",
+    "static/media/restaurant_menu_black_24dp.2bed2b9a.svg": "/static/media/restaurant_menu_black_24dp.2bed2b9a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1a9b355e.js",
+    "static/js/2.4873815a.chunk.js",
+    "static/css/main.47b8b737.chunk.css",
+    "static/js/main.1460cf07.chunk.js"
+  ]
+}
