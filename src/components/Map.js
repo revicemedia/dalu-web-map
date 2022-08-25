@@ -1,13 +1,12 @@
 import "../index.css";
-import React, { useState } from "react";
+import React from "react";
 import GoogleMapReact from "google-map-react";
 import RestaurantIcon from "../svgs/restaurant_menu_black_24dp.svg";
 import CafeIcon from "../svgs/coffee_black_24dp.svg";
 import BarIcon from "../svgs/local_bar_black_24dp.svg";
-import styled from "@emotion/styled";
 
 function Map({ markers, loc, center }) {
-  const [zoom, setZoom] = useState(12);
+  const zoom = 12;
 
   return (
     <div className="MapWrapper">
@@ -70,55 +69,5 @@ function Map({ markers, loc, center }) {
     </div>
   );
 }
-
-const MapSearch = styled.div`
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  right: 10px;
-  height: 60px;
-  z-index: 2000000;
-  border-radius: 20px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 10px;
-`;
-
-const SearchButton = styled.button`
-  all: unset;
-  width: 60px;
-  height: 60px;
-  background-color: #113042;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledInputSearch = styled.input`
-  all: unset;
-  padding-left: 25px;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-`;
-
-const StyledInputWrapper = styled.div`
-  width: 100%;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  border-radius: 10px;
-  height: 60px;
-  background-color: #fff;
-`;
-
-const SearchDeleteDiv = styled.div`
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 export default Map;

@@ -10,12 +10,9 @@ import LocationOverlay from "./components/LocationOverlay";
 import DetailsPage from "./Pages/DetailsPage";
 
 function App() {
-  const [searchFilter, setSearchFilter] = useState(false);
   const [locationOverlayOpen, setLocationOverlayOpen] = useState(false);
   const [activeLocation, setActiveLocation] = useState([]);
   const [markers, setMarkers] = useState([]);
-  const [filteredMarkers, setFilteredMarkers] = useState([]);
-  const [loc, setLoc] = useState(null);
   const [center, setCenter] = useState({
     lat: 50.3463816,
     lng: 7.5185153,
@@ -60,8 +57,7 @@ function App() {
           active={activeRoute === "Map" || activeRoute.activeRoute === "Map"}
         >
           <Map
-            markers={!searchFilter ? markers : filteredMarkers}
-            loc={loc}
+            markers={markers}
             center={center}
             onMarkerClick={onMarkerClick}
           ></Map>
