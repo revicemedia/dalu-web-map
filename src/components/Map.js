@@ -5,22 +5,21 @@ import RestaurantIcon from "../svgs/restaurant_menu_black_24dp.svg";
 import CafeIcon from "../svgs/coffee_black_24dp.svg";
 import BarIcon from "../svgs/local_bar_black_24dp.svg";
 
-function Map({ markers, loc, center }) {
+function Map({ markers, loc, center, onHandleMarkerClick }) {
   const zoom = 12;
 
+  const handleMarkerClick = (marker) => {
+    onHandleMarkerClick(marker);
+  };
+
   return (
-    <div className="MapWrapper">
+    <>
       <div id="map">
-        <div className="OverMap">
-          <a className="DashboardButton" href="https://dashboard.dalu-map.com">
-            Zum Dashboard
-          </a>
-        </div>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyAoBsFNDDZL59ZGNy4UCPSjsbmEHNQhRHk" }}
           center={center}
           zoom={zoom}
-          gestureHandling={"greedy"}
+          gestureHandling="greedy"
         >
           {markers.map((marker, index) => (
             <div
@@ -29,6 +28,7 @@ function Map({ markers, loc, center }) {
               lng={marker.locationLng}
               text={marker.locationName}
               key={index}
+              onClick={() => handleMarkerClick(marker)}
             >
               <div
                 className={
@@ -66,7 +66,7 @@ function Map({ markers, loc, center }) {
           )}
         </GoogleMapReact>
       </div>
-    </div>
+    </>
   );
 }
 

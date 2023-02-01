@@ -1,91 +1,58 @@
 import "../index.css";
-import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import CloseIcon from "../svgs/close_white_24dp.svg";
+import "./LocationOverlay.css";
 
 function LocationOverlay({
   activeLocation,
   onCloseLocationOverlay,
   onDetailsButtonClick,
 }) {
-  let activeRoute = useSelector((state) => state.ACTIVEROUTE.activeRoute);
-  const dispatch = useDispatch();
-
-  const changeNavigationLocation = (name) => {
-    if (name !== activeRoute && name !== activeRoute.activeRoute) {
-      dispatch({
-        type: "changeActiveRoute",
-        payload: { activeRoute: name },
-      });
-    } else {
-      console.warn("Dieser Tab ist bereits aktiv!");
-    }
-  };
-
   function closeLocationOverlay() {
     onCloseLocationOverlay();
   }
 
-  function detailsButtonClick() {
-    onDetailsButtonClick(activeLocation);
-    changeNavigationLocation("Details");
-  }
-
   return (
-    <LocationOverlayWrapper>
-      <LocationLayoutWrapper>
-        <LocationImage
-          src={
-            "https://dalu-api-delivery-service.com/image-uploads/" +
-            activeLocation.locationId +
-            ".jpg"
-          }
-        />
-        <ContentLocationWrapper>
-          <h4>{activeLocation.locationName}</h4>
-          {activeLocation.locationStatus === "green" ? (
-            <StatusWrapper>
-              <GreenDot />
-              <StatusTextOverlay>Wenig ausgelastet</StatusTextOverlay>
-            </StatusWrapper>
-          ) : activeLocation.locationStatus === "yellow" ? (
-            <StatusWrapper>
-              <YellowDot />
-              <StatusTextOverlay>Stark ausgelastet</StatusTextOverlay>
-            </StatusWrapper>
-          ) : (
-            <StatusWrapper>
-              <RedDot />
-              <StatusTextOverlay>Keien freien Plätze</StatusTextOverlay>
-            </StatusWrapper>
-          )}
-          <DetailsButton onClick={() => detailsButtonClick(activeLocation)}>
-            Details
-          </DetailsButton>
-        </ContentLocationWrapper>
-      </LocationLayoutWrapper>
-      <CloseLocationOverlay onClick={() => closeLocationOverlay()}>
-        <img src={CloseIcon} alt="Close Location Overlay" />
-      </CloseLocationOverlay>
-    </LocationOverlayWrapper>
+    <div className="flex-center-Overlay">
+      <div className="LocationOverlayWrapper">
+        <LocationLayoutWrapper>
+          <LocationImage
+            src={
+              "https://dalu-api-delivery-service.com/image-uploads/" +
+              activeLocation.locationId +
+              ".jpg"
+            }
+          />
+          <ContentLocationWrapper>
+            <h4>{activeLocation.locationName}</h4>
+            {activeLocation.locationStatus === "green" ? (
+              <StatusWrapper>
+                <GreenDot />
+                <StatusTextOverlay>Wenig ausgelastet</StatusTextOverlay>
+              </StatusWrapper>
+            ) : activeLocation.locationStatus === "yellow" ? (
+              <StatusWrapper>
+                <YellowDot />
+                <StatusTextOverlay>Stark ausgelastet</StatusTextOverlay>
+              </StatusWrapper>
+            ) : (
+              <StatusWrapper>
+                <RedDot />
+                <StatusTextOverlay>Keien freien Plätze</StatusTextOverlay>
+              </StatusWrapper>
+            )}
+            <DetailsButton onClick={() => console.log(activeLocation)}>
+              Details
+            </DetailsButton>
+          </ContentLocationWrapper>
+        </LocationLayoutWrapper>
+        <CloseLocationOverlay onClick={() => closeLocationOverlay()}>
+          <img src={CloseIcon} alt="Close Location Overlay" />
+        </CloseLocationOverlay>
+      </div>
+    </div>
   );
 }
-
-const LocationOverlayWrapper = styled.div`
-  width: 94vw;
-  height: auto;
-  z-index: 0;
-  background-color: #fff;
-  position: absolute;
-  bottom: 0;
-  padding: 10px 10px;
-  border-radius: 10px;
-  margin-right: 3vw;
-  margin-left: 3vw;
-  margin-bottom: 3vw;
-  align-self: center;
-  justify-self: center;
-`;
 
 const StatusWrapper = styled.div`
   width: 100%;

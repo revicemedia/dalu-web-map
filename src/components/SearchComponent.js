@@ -13,13 +13,13 @@ function SearchComponent({ onSearchSubmit }) {
   const [isRestaurant, setIsRestaurant] = useState(false);
   function toggleChecked(location) {
     if (location === "restaurant") {
-      setIsRestaurant(!isRestaurant);
+      setIsRestaurant(true);
       console.log("Restaurant");
     } else if (location === "bar") {
-      setIsBar(!isBar);
+      setIsBar(true);
       console.log("Bar");
     } else if (location === "cafe") {
-      setIsCafe(!isCafe);
+      setIsCafe(true);
       console.log("Cafe");
     }
   }
