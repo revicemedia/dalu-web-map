@@ -24,7 +24,9 @@ function LocationOverlay({
             }
           />
           <ContentLocationWrapper>
-            <h4>{activeLocation.locationName}</h4>
+            <p className="LocationOverlayWrapper-Headline">
+              {activeLocation.locationName}
+            </p>
             {activeLocation.locationStatus === "green" ? (
               <StatusWrapper>
                 <GreenDot />
@@ -38,17 +40,22 @@ function LocationOverlay({
             ) : (
               <StatusWrapper>
                 <RedDot />
-                <StatusTextOverlay>Keien freien Plätze</StatusTextOverlay>
+                <StatusTextOverlay>Keine freien Plätze</StatusTextOverlay>
               </StatusWrapper>
             )}
             <DetailsButton onClick={() => console.log(activeLocation)}>
-              Details
+              Mehr erfahren
             </DetailsButton>
           </ContentLocationWrapper>
+          <CloseLocationOverlay onClick={() => closeLocationOverlay()}>
+            <img
+              width="30px"
+              height="30px"
+              src={CloseIcon}
+              alt="Close Location Overlay"
+            />
+          </CloseLocationOverlay>
         </LocationLayoutWrapper>
-        <CloseLocationOverlay onClick={() => closeLocationOverlay()}>
-          <img src={CloseIcon} alt="Close Location Overlay" />
-        </CloseLocationOverlay>
       </div>
     </div>
   );
@@ -62,6 +69,7 @@ const StatusWrapper = styled.div`
 
 const StatusTextOverlay = styled.p`
   font-size: 0.8rem;
+  font-weight: 400;
 `;
 
 const GreenDot = styled.div`
@@ -90,7 +98,7 @@ const RedDot = styled.div`
 
 const LocationLayoutWrapper = styled.div`
   display: grid;
-  grid-template-columns: 4fr 6fr;
+  grid-template-columns: 1.2fr 2fr auto;
   gap: 10px;
   width: 100%;
   height: auto;
@@ -115,26 +123,20 @@ const ContentLocationWrapper = styled.div`
 `;
 
 const DetailsButton = styled.div`
-  background-color: #3d3d3d;
-  color: #fff;
-  font-weight: 700;
-  padding: 10px 20px;
-  border-radius: 5px;
+  /* background-color: #3d3d3d; */
+  color: #3d3d3d;
+  font-weight: 300;
+  /* padding: 10px 20px; */
+  /* border-radius: 5px; */
   font-size: 0.8rem;
   width: fit-content;
+  border-bottom: 1px solid #3d3d3d;
 `;
 
 const CloseLocationOverlay = styled.div`
-  width: 30px;
-  height: 30px;
-  background-color: #fff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: -35px;
-  right: 0px;
+  width: auto;
+  height: auto;
+  display: block;
 `;
 
 export default LocationOverlay;

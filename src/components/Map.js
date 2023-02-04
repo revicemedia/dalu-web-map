@@ -5,9 +5,7 @@ import RestaurantIcon from "../svgs/restaurant_menu_black_24dp.svg";
 import CafeIcon from "../svgs/coffee_black_24dp.svg";
 import BarIcon from "../svgs/local_bar_black_24dp.svg";
 
-function Map({ markers, loc, center, onHandleMarkerClick }) {
-  const zoom = 12;
-
+function Map({ markers, loc, center, onHandleMarkerClick, zoom }) {
   const handleMarkerClick = (marker) => {
     onHandleMarkerClick(marker);
   };

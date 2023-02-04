@@ -17,3 +17,7 @@
   z-index: 0;
   bottom: 0;
 }
+
+.LocationOverlayWrapper-Headline {
+  font-weight: 600;
+}

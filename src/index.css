@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 #map {
@@ -42,6 +42,7 @@
   border-radius: 50%;
   user-select: none;
   transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 .StatusMarker {

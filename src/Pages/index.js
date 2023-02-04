@@ -15,10 +15,7 @@ function Index() {
     lat: 50.3463816,
     lng: 7.5185153,
   });
-
-  const hi = {
-    test: 123,
-  };
+  const [zoom, setZoom] = useState(12);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -28,16 +25,22 @@ function Index() {
     }
 
     async function showPosition(position) {
-      const test = {
-        hello: {
+      const userLocation = {
+        coordinates: {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         },
       };
 
-      Object.assign(hi, test);
+      if (position) {
+        setCenter({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
+        setZoom(14);
+      }
 
-      console.log(hi);
+      console.log(userLocation);
     }
   });
 
@@ -50,6 +53,7 @@ function Index() {
   function onCloseLocationOverlay() {
     setLocationOverlayOpen(false);
     setActiveLocation([]);
+    setZoom(12);
   }
 
   function onDetailsButtonClick() {
@@ -64,6 +68,7 @@ function Index() {
       lat: Number(marker.locationLat),
       lng: Number(marker.locationLng),
     });
+    setZoom(14);
   };
 
   return (
@@ -74,6 +79,7 @@ function Index() {
           markers={markers}
           center={center}
           onHandleMarkerClick={onHandleMarkerClick}
+          zoom={zoom}
         ></Map>
         {locationOverlayOpen && (
           <LocationOverlay
